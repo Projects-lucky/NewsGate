@@ -1,0 +1,84 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+
+
+
+.single-post-comment-cnt {
+    @include w-100-h-auto;
+    @include fccs;
+    gap: 1rem;
+}
+
+
+
+.comments-area {
+    margin-top: 40px;
+}
+
+.comments-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment {
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+}
+
+.comment-author {
+    font-weight: bold;
+}
+
+.comment-metadata {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.comment-form {
+    margin-top: 40px;
+}
+
+.comment-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.comment-form input[type="text"],
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.comment-form .submit {
+    background: #124fd2;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.comment-form .submit:hover {
+    background: #033ead;
+}
+
+#comment {
+    width: clamp(100px, auto, 40rem);
+    height: clamp(100px, 8rem, 20rem);
+    resize: vertical;
+}
+
+.required-field-message, .logged-in-as, .logged-in-as a {
+    font-size: 0.8rem;
+}

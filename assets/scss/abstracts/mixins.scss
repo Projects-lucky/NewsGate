@@ -1,0 +1,331 @@
+@use "variables" as *; // Import variables
+
+
+
+//for display purposes
+@mixin fccc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@mixin fcsbc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin fcsbs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+@mixin fcsc {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+@mixin fcss {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+@mixin fccs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+@mixin fces {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+@mixin frsc {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+@mixin frcs {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+}
+
+@mixin frcc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin frsec {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@mixin frsbc {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin frsbs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+@mixin frsc {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+
+
+// width and height 100%
+@mixin w-h-100 {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+// width and height auto
+@mixin w-h-auto {
+    width: auto;
+    height: auto;
+    box-sizing: border-box;
+}
+// width 100% and height auto
+@mixin w-100-h-auto ($height: auto){
+    width: 100%;
+    height: $height;
+    box-sizing: border-box;
+}
+
+// Mixin for width and height with calculation support
+@mixin w-h($width: auto, $height: auto, $widthCalc: null, $heightCalc: null) {
+    width: if($widthCalc !=null, calc(#{$width} #{$widthCalc}), $width);
+    height: if($heightCalc !=null, calc(#{$height} #{$heightCalc}), $height);
+    box-sizing: border-box;
+}
+
+// clamp styles for wdth and height
+@mixin clamp-w-h ($min-width, $preferred-width, $max-width, $min-height, $preferred-height, $max-height) {
+    width: clamp($min-width, $preferred-width, $max-width);
+    height: clamp($min-height, $preferred-height, $max-height);
+}
+
+
+
+// This mixing function is used for the Responsiveness.
+@mixin respond-to($size) {
+    $breakpoint: map-get($breakpoints, $size); // Get value from map
+
+    @if $breakpoint {
+        @media (max-width: $breakpoint) {
+            @content;
+        }
+    }
+
+    @else {
+        @warn "Breakpoint #{$size} not found in $breakpoints map.";
+        @error "Invalid breakpoint: #{$size}. Available: #{map-keys($breakpoints)}";
+    }
+}
+
+
+
+
+
+
+// This is the animation functions. Use it wherever you want to animation like sliding and fade in.
+@mixin slide-br($duration: 0.5s, $x: 100px, $y: 100px) {
+    -webkit-animation: slide-br $duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    animation: slide-br $duration cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+
+    @-webkit-keyframes slide-br {
+        0% {
+            -webkit-transform: translateY(0) translateX(0);
+            transform: translateY(0) translateX(0);
+        }
+
+        100% {
+            -webkit-transform: translateY($y) translateX($x);
+            transform: translateY($y) translateX($x);
+        }
+    }
+
+    @keyframes slide-br {
+        0% {
+            -webkit-transform: translateY(0) translateX(0);
+            transform: translateY(0) translateX(0);
+        }
+
+        100% {
+            -webkit-transform: translateY($y) translateX($x);
+            transform: translateY($y) translateX($x);
+        }
+    }
+}
+
+@mixin fadeInDown($duration: 1s, $timing-function: ease-in-out, $delay: 0s) {
+    -webkit-animation: fadeInDown $duration $timing-function $delay both;
+    animation: fadeInDown $duration $timing-function $delay both;
+
+    @-webkit-keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+
+    @keyframes fadeInDown {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate3d(0, -100%, 0);
+            transform: translate3d(0, -100%, 0);
+        }
+
+        100% {
+            opacity: 1;
+            -webkit-transform: none;
+            transform: none;
+        }
+    }
+}
+
+
+
+
+
+// responsive line clamp
+@mixin line-clamp($lines: 2) {
+    display: -webkit-box;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+// Categories after style
+@mixin cat-after {
+    content: "";
+    width: 4px;
+    height: 4px;
+    align-content: center;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: $accent-color;
+}
+
+
+
+
+// button style and hover effect
+@mixin button-style{
+        border-radius: 50%;
+        background-color: #0000003f;
+        color: white;
+        border: none;
+        cursor: pointer;
+    
+        &:hover {
+            border: 2px solid whitesmoke;
+            transition: background-color 0.3s ease-in-out;
+            background-color: #00000096;
+        }
+}
+
+
+
+
+// This is the underline animation. Use it wherever you want.
+@mixin underline-after{
+            content: "";
+            width: 0;
+            height: 0;
+            background-color: rgba(240, 0, 0, 0.91);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+}
+    
+@mixin underline-after-hover {
+        content: "";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-duration: 400ms;
+        transition-property: width, left;
+}
+
+// This effect is used for lists and some time buttons.
+@mixin list-hover-effect($colors, $duration: 0.5s) {
+    position: relative;
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 0;
+        background-color: $primary-color;
+        transition: width $duration ease;
+    }
+
+    &:hover {
+        background-color: $primary-color;
+        transition: background-color $duration ease-in-out;
+    }
+
+    &:hover::before {
+        width: 100%;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 0;
+        width: 100%;
+        background-color: $primary-color;
+        transition: height $duration ease;
+        z-index: -1;
+    }
+
+    &:hover::after {
+        height: 100%;
+        transition-delay: 0.4s;
+    }
+}
+
+
+// this effect will be applied to the bottom of the container od the card-details contents
+@mixin c-d-e{
+    background: rgb(0, 0, 0);
+    background: -moz-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7232975465576856) 50%, rgba(0, 0, 0, 0) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7232975465576856) 50%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.7232975465576856) 50%, rgba(0, 0, 0, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000", endColorstr="#000000", GradientType=1);
+}

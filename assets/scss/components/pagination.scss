@@ -1,0 +1,45 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+
+
+.ftch-pagination {
+    @include w-h-auto;
+    @include frcc;
+    padding: 0.5rem 0.8rem;
+}
+
+
+.page-numbers {
+    @include w-h-auto;
+    padding: 0.2rem 0.3rem;
+    color: $accent-color1;
+    border-radius: $br5;
+    text-decoration: none;
+}
+.dark .page-numbers {
+    color: $accent-color;
+}
+.prev {
+    background-color: $primary-color;
+
+    &:hover {
+        background-color: lighten($primary-color, 10%);
+    }
+}
+
+.next {
+    background-color: $primary-color;
+    
+    &:hover {
+            background-color: lighten($primary-color, 10%);
+        }
+}
+
+.ftch-pagination .current {
+    background-color: $accent-color;
+    color: rgb(233, 118, 98);
+    border: none;
+}

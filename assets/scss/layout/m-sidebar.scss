@@ -1,0 +1,138 @@
+// Import base styles
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+
+
+
+
+
+.smartphone-sidebar {
+    display: none;
+    width: 70%;
+    height: 100vh;
+    padding: 20px;
+    background-color: $background-dark;
+    gap: 1rem;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    z-index: 100;
+}
+
+.smart-nav-active {
+    @include fcsc;
+}
+
+.smartphone-sidebar-cnt {
+    @include fcsc;
+    @include w-100-h-auto;
+    padding: 0.4rem;
+    position: relative;
+    gap: 0.5rem;
+    overflow-y: scroll;
+}
+.ss-pages-nav-cnt {
+   @include w-h-auto;
+    border: 1px solid black;
+    border-radius: 5px;
+    @include frcc;
+    position: relative;
+    align-self: flex-end;
+}
+
+.ss-pages-ul {
+    @include fccs;
+    @include w-h-auto;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.2rem;
+}
+
+.ss-pages-li {
+    padding: 0.2rem 0.3rem;
+    @include w-100-h-auto;
+    border-radius: $br5;
+    text-align: right;
+}
+
+.ss-pages-li a {
+    color: $accent-color;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.3rem;
+    text-align: right
+}
+
+
+
+
+.ss-cat-nav-cnt {
+    @include w-h-auto;
+    border-radius: 5px;
+    align-self: flex-end;
+    overflow: hidden;
+}
+
+.ss-cat-nav-ul {
+    @include w-100-h-auto(16rem);
+    @include fcsc;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    gap: 0.2rem;
+    position: relative;
+    overflow-y: scroll;
+}
+
+.ss-cat-nav-li {
+    padding: 0.2rem 0.3rem;
+    position: relative;
+    @include w-100-h-auto;
+    text-align: right;
+}
+
+
+.ss-cat-nav-li a {
+    padding: 0.2rem 0.3rem;
+    text-decoration: none;
+    font-size: 1.3rem;
+    text-align: right;
+    text-transform: capitalize;
+    color: $accent-color;
+}
+
+
+
+
+hr {
+    height: 1px;
+    width: 100%;
+    background-color: #000;
+}
+
+.ss-profile-cnt {
+    @include w-100-h-auto;
+    background-color: $secondary-color;
+    border-radius: $br10;
+    @include fccs;
+    gap: 0.4rem;
+}
+.user-info {
+    @include w-100-h-auto;
+    @include frsc;
+    gap: 0.6rem;
+}
+.ss-profile-name {
+    @include w-100-h-auto;
+    @include fcsc;
+    font-size: 0.9rem;
+    color: $accent-color;
+    @include line-clamp(1);
+}

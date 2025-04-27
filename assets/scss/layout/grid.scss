@@ -1,0 +1,136 @@
+// Import base styles
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+// Import pages
+@use "../pages" as *;
+
+@use "header" as *;
+
+
+
+
+
+
+ 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: $font-popins;
+    letter-spacing: 0.08rem;
+    background-attachment: fixed;
+    background-color: rgb(227, 227, 227);
+    box-sizing: border-box;
+}
+
+
+.main-lyt {
+    width: clamp(350px, 60vw, 100vw);
+    height: clamp(40px, auto, 40vh);
+    margin: 1rem auto;
+    @include fccc;
+    position: relative;
+
+    @include respond-to(xxl) {
+            width: clamp(350px, 70vw, 100vw);
+            height: clamp(50px, auto, 40vh);
+            border: 2px solid black;
+        }
+    
+        @include respond-to(xl) {
+            width: clamp(350px, 75vw, 100vw);
+            height: clamp(50px, auto, 40vh);
+        }
+    
+        @include respond-to(lg) {
+            width: clamp(350px, 100vw, 100vw);
+            height: clamp(50px, auto, 40vh);
+        }
+}
+
+.featured-latest-sec {
+    @include w-h-100;
+    display: grid;
+    grid-template-areas: 
+    "feat-title-cnt"
+    "feat-content"
+    ;
+}
+
+
+
+.feat-title-cnt {
+    grid-area: feat-title-cnt;
+    @include w-100-h-auto;
+    @include frsbc;
+}
+
+.feat-title {
+    @include w-h-auto;
+    @include frsbc;
+}
+.feat-title a{
+    font-size: 1.2rem;
+    color: $accent-color;
+    text-decoration: none;
+    padding: 0.2rem 0.4rem;
+}
+
+.feat-ul {
+    @include w-h-auto;
+     @include frsbc;
+     gap: 0.3rem
+}
+.feat-ul li {
+    @include w-h-auto;
+     @include frsbc;
+     list-style-type: none;
+     padding: 0.2rem 0.4rem;
+}
+.feat-ul li a {
+    @include w-h-auto;
+     @include frcc;
+     flex-wrap: nowrap;
+     text-decoration: none;
+}
+
+
+
+
+
+.feat-content-cnt {
+    grid-area: feat-content;
+    display: grid;
+    gap: 1rem;
+    position: relative;
+    grid-template-areas: 
+    " first-feat-post-cnt second-feat-post-cnt "
+    ;
+
+} 
+
+.first-feat-post-cnt {
+    grid-area: first-feat-post-cnt;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp(150px, 25vw, 300px), 1fr));    align-items: center;
+    position: relative;
+    
+}
+
+.second-feat-post-cnt  {
+    grid-area: second-feat-post-cnt;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(clamp(150px, 25vw, 200px), 1fr));
+    grid-template-rows: repeat(2, minmax(clamp(150px, 25vw, 200px), 1fr));
+    position: relative;
+}

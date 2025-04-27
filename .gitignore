@@ -1,0 +1,11 @@
+# Ignore node_modules folder
+node_modules/
+
+# Ignore WordPress core files (optional)
+wp-config.php
+wp-content/uploads/
+vendor/
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db

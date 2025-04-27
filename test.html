@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: #ececec;
+    width: 100%;
+    height: 100vh;
+}
+
+.sdx {
+    width: 400px;
+    height: 300px;
+    border: 1px solid rgb(252, 251, 251);
+    margin: 0 auto;
+    border-radius: 5px;
+    position: relative;
+}
+
+.dcf {
+    width: 100%;
+    height: 30px;
+    display: flex;
+}
+
+.cnt {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    position: relative;
+}
+
+.ch1 {
+    width: 100%;
+    height: 40%;
+    background-color: rgb(234, 145, 28);
+    border-radius: 8px;
+    display: flex;
+    position: absolute;
+    top: 10%;
+
+}
+
+.ch1:nth-child(2){
+    background-color: rgb(32, 228, 159);
+}
+.ch1:nth-child(3){
+    background-color: rgb(81, 32, 228);
+}
+
+    </style>
+</head>
+<body>
+ <div class="sdx">
+    <div class="dcf">
+        <button class="btn" id="prev"><</button>
+        <button class="btn" id="next">></button>
+    </div>
+
+    <div class="cnt">
+        <div class="ch1">hello 1</div>
+        <div class="ch1">hello 2</div>
+        <div class="ch1">hello 3</div>
+    </div>
+ </div>
+<p id="demo"></p>
+
+ <script>
+    let p = document.querySelector('#demo');
+    let next = document.querySelector('#next');
+    let prev = document.querySelector('#prev');
+    let cnt = document.querySelector('.cnt');
+    let itm = document.querySelectAll('.ch1');
+
+    
+ </script>
+</body>
+</html>

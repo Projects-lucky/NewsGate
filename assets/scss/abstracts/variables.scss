@@ -1,0 +1,52 @@
+@use "../base/typography" as *;
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Silkscreen:wght@400;700&display=swap');
+//breakpoint style 
+$breakpoints: (
+    sm: 576px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1200px,
+    xxl: 1450px
+);
+
+
+// color variables
+$primary-color: #f31e30; // Bold red for headlines and call-to-action (CTA)
+$secondary-color: #1A1A2E; // Deep navy for text and dark backgrounds
+$background-light: #F8F9FA; // Soft off-white for a clean background
+$background-dark: #121212; // True dark mode background
+$text-color: #2D2D2D; // Dark gray for high readability
+$border-color: #E1E1E1; // Light gray for dividers and card borders
+$highlight-color: #FFB400; // Warm yellow for highlights and breaking news
+$link-color: #007BFF; // Bright blue for hyperlinks and interactive elements
+$accent-color: #e2e2e2; // Muted gray for secondary buttons and labels
+$accent-color1: #1a1a1a; // Muted gray for secondary buttons and labels
+$hover-color: #FFB400; // Bright yellow for hover effects
+$border-color: #66ff66; // Light gray for dividers and card borders
+$accent-color-dark: #ffffff; // white for wherever dark class  is applied
+$btn-color: rgb(70, 106, 251);
+
+//basic styles 
+$br10: 0.5rem;
+$br5: 0.2rem;
+
+
+
+
+//font styles 
+$font1: "Silkscreen",serif;
+$font2:  "Poppins",serif;
+$customfont: "logofont", sans-serif;
+
+
+
+
+
+// transition styles
+$transition-fast: 0.2s ease-in-out;
+$transition-medium: 0.4s ease-in-out;
+$transition-slow: 0.6s ease-in-out;
+
+//clip pathp for the headline
+$clip: polygon(89% 0, 100% 100%, 100% 100%, 0 100%, 0 0);

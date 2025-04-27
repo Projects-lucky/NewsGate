@@ -1,0 +1,442 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+
+
+.fifth-section {
+    @include w-100-h-auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    grid-template-areas:
+        "all-post latest-post"
+    ;
+
+    @include respond-to(md) {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: auto;
+        gap: 1rem;
+        grid-template-areas:
+            "all-post"
+            "latest-post"
+        ;
+    }
+}
+
+
+.all-post-cnt {
+    grid-area: all-post;
+    @include w-h-100;
+    grid-template-rows: auto 1fr;
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+        "ap-title"
+        "ap-post"
+    ;
+}
+
+
+.ap-title-cnt {
+    grid-area: ap-title;
+    @include w-100-h-auto;
+    @include frsc;
+    border-bottom: 1px solid $primary-color;
+    overflow: hidden;
+
+    a {
+            text-decoration: none;
+            color: $accent-color;
+            font-size: 1.4rem;
+            padding: 0.1rem 2rem;
+            background-color: $primary-color;
+            clip-path: $clip;
+        }
+}
+
+.ap-post-cnt {
+    grid-area: ap-post;
+    @include w-h-100;
+    grid-template-rows: auto 1fr;
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+        "ap-big-post"
+        "ap-small-post"
+    ;
+}
+
+.ap-big-post-cnt {
+    grid-area: ap-big-post;
+    @include w-100-h-auto(clamp(200px, 24rem, 40rem));
+
+    @include respond-to(xxl) {
+        @include w-100-h-auto(clamp(150px, 20rem, 30rem));
+    }
+
+    @include respond-to(xl) {
+        @include w-100-h-auto(clamp(150px, 18rem, 30rem));
+    }
+
+    @include respond-to(lg) {
+        @include w-100-h-auto(clamp(150px, 16rem, 30rem));
+    }
+
+    @include respond-to(md) {
+        @include w-100-h-auto(clamp(150px, 20rem, 30rem));
+    }
+
+    @include respond-to(sm) {
+        @include w-100-h-auto(clamp(150px, 16rem, 30rem));
+    }
+}
+
+.ap-post-wpr-cnt {
+    @include w-h-100;
+    @include fccc;
+    position: relative;
+}
+
+.ap-figure-cnt {
+    @include w-h-100;
+    @include fccc;
+    overflow: hidden;
+    margin: 0;
+}
+
+.ap-post-img {
+    @include w-h-100;
+    object-fit: cover;
+}
+
+.ap-details-cnt {
+    @include w-100-h-auto(cal(100% - 60%));
+    @include fces;
+    @include c-d-e;
+    position: absolute;
+    bottom: 0;
+}
+
+.ap-post-title {
+    @include w-100-h-auto;
+    @include frsc;
+}
+
+.ap-title-link {
+    @include w-h-auto;
+    color: $accent-color;
+    text-decoration: none;
+    @include line-clamp(2)
+}
+.ap-title-link:hover {
+    color: $hover-color;
+}
+
+.ap-meta-details {
+    @include frsc;
+    font-size: 0.8rem;
+    @include w-100-h-auto;
+    gap: 1rem
+}
+
+.ap-cat,
+.ap-date {
+    @include frsbc;
+    font-size: 0.7rem;
+    color: $accent-color;
+
+    a {
+        text-decoration: none;
+        color: $accent-color;
+    }
+}
+
+.ap-cat::after {
+   @include cat-after;
+}
+
+.ap-cat:hover a {
+    color: $hover-color;
+}
+
+
+
+.ap-small-post-cnt {
+    grid-area: ap-small-post;
+    @include w-100-h-auto(clamp(300px, 45rem, auto));
+    @include fccc;
+    gap: 2.2rem;
+}
+
+.ap-sm-art-wpt-cnt {
+    @include w-100-h-auto(clamp(50px, 10rem, auto));
+    @include fccc;
+}
+
+.ap-sm-details-cnt {
+    @include w-h-100;
+    @include fcsc;
+}
+
+.ap-sm-post-title {
+    @include w-100-h-auto;
+    @include frsc;
+}
+
+.ap-sm-title-link {
+    @include w-h-auto;
+    color: $accent-color1;
+    text-decoration: none;
+    @include line-clamp(2)
+}
+
+.dark .ap-sm-title-link {
+    color: $accent-color;
+}
+.ap-sm-title-link:hover {
+    color: $hover-color;
+}
+
+.ap-sm-meta-details {
+    @include w-100-h-auto;
+    @include frsc;
+    gap: 0.4rem;
+}
+
+.ap-sm-cat,
+.ap-sm-date {
+    @include w-h-auto;
+    @include frsc;
+    color: $accent-color1;
+    font-size: 0.7rem;
+
+    a {
+        @include w-h-auto;
+        color: $accent-color1;
+        text-decoration: none;
+        font-size: 0.7rem;
+    }
+}
+
+
+.dark .ap-sm-cat,
+.dark .ap-sm-date {
+    color: $accent-color;
+
+    a {
+        color: $accent-color;
+    }
+}
+
+.ap-sm-cat::after {
+   @include cat-after;
+}
+
+.ap-sm-cat:hover a {
+    color: $hover-color;
+}
+
+
+
+
+
+
+
+
+
+
+
+.latest-post-cnt {
+    grid-area: latest-post;
+    @include w-h-100;
+    grid-template-rows: auto 1fr;
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+        "ltsp-title"
+        "ltsp-post"
+    ;
+}
+
+.ltsp-title-cnt {
+    grid-area: ltsp-title;
+    @include w-100-h-auto;
+    @include frsc;
+    border-bottom: 1px solid $primary-color;
+    overflow: hidden;
+
+    a {
+        text-decoration: none;
+        color: $accent-color;
+        font-size: 1.4rem;
+        padding: 0.2rem 2rem;
+        background-color: $primary-color;
+        clip-path: $clip;
+    }
+}
+
+
+
+.ltsp-post-cnt {
+    grid-area: ltsp-post;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "ltsp-big-post"
+        "ltsp-small-post"
+    ;
+
+}
+
+
+
+.ltsp-big-post-cnt {
+    grid-area: ltsp-big-post;
+    @include w-100-h-auto(clamp(200px, 24rem, 40rem));
+
+    @include respond-to(xxl) {
+        @include w-100-h-auto(clamp(150px, 20rem, 30rem));
+    }
+
+    @include respond-to(xl) {
+        @include w-100-h-auto(clamp(150px, 18rem, 30rem));
+    }
+
+    @include respond-to(lg) {
+        @include w-100-h-auto(clamp(150px, 16rem, 30rem));
+    }
+
+    @include respond-to(md) {
+        @include w-100-h-auto(clamp(150px, 20rem, 30rem));
+    }
+
+    @include respond-to(sm) {
+        @include w-100-h-auto(clamp(150px, 16rem, 30rem));
+    }
+}
+
+.ltsp-post-wpr-cnt {
+    @extend .ap-post-wpr-cnt;
+}
+
+.ltsp-figure-cnt {
+    @extend .ap-figure-cnt;
+}
+
+.ltsp-post-img {
+    @extend .ap-post-img;
+}
+
+.ltsp-details-cnt {
+    @extend .ap-details-cnt;
+}
+
+.ltsp-post-title {
+    @extend .ap-post-title;
+}
+
+.ltsp-title-link {
+    @extend .ap-title-link;
+}
+
+.dark .ltsp-title-link {
+    color: $accent-color;
+}
+
+
+.ltsp-meta-details {
+    @extend .ap-meta-details;
+}
+
+.ltsp-cat,
+.ltsp-date {
+    @include frsbc;
+    font-size: 0.7rem;
+    color: $accent-color;
+
+    a {
+        text-decoration: none;
+        color: $accent-color;
+    }
+}
+
+.ltsp-cat::after {
+    @include cat-after;
+}
+
+.ltsp-cat:hover a{
+    color: $hover-color;
+}
+
+
+
+.ltsp-small-post-cnt {
+    grid-area: ltsp-small-post;
+    @include w-100-h-auto(clamp(300px, 45rem, auto));
+    @include fccc;
+    gap: 2.2rem;
+}
+
+.ltsp-sm-art-wpt-cnt {
+    @extend .ap-sm-art-wpt-cnt;
+}
+
+.ltsp-sm-details-cnt {
+    @extend .ap-sm-details-cnt;
+}
+
+.ltsp-sm-post-title {
+    @extend .ap-sm-post-title;
+}
+
+.ltsp-sm-title-link {
+    @extend .ap-sm-title-link;
+}
+
+.ltsp-sm-meta-details {
+    @extend .ap-sm-meta-details;
+}
+
+.ltsp-sm-cat,
+.ltsp-sm-date {
+    @include w-h-auto;
+    @include frsc;
+    color: $accent-color1;
+    font-size: 0.7rem;
+
+    a {
+        @include w-h-auto;
+        color: $accent-color1;
+        text-decoration: none;
+        font-size: 0.7rem;
+    }
+}
+
+
+.dark .ltsp-sm-cat,
+.dark .ltsp-sm-date {
+    @include w-h-auto;
+    @include frsc;
+    color: $accent-color;
+    font-size: 0.7rem;
+
+    a {
+        @include w-h-auto;
+        color: $accent-color;
+        text-decoration: none;
+        font-size: 0.7rem;
+    }
+}
+
+.ltsp-sm-cat::after {
+    @include cat-after;
+}
+
+.ltsp-sm-cat:hover a {
+    color: $hover-color;
+}

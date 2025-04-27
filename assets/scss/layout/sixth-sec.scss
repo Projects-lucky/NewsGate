@@ -1,0 +1,414 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+
+.sixth-sec {
+    @include w-100-h-auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    grid-template-areas:
+    "sixth-sec-left sixth-sec-right";
+
+    @include respond-to(md) {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: auto;
+        gap: 1rem;
+        grid-template-areas:
+        "sixth-sec-left"
+        "sixth-sec-right";
+    }
+
+}
+
+.sxth-first {
+    grid-area: sixth-sec-left;
+    @include w-h-100;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    grid-template-areas: 
+    "sxth-first-title"
+    "sxth-first-content";
+}
+
+
+.sxth-title-sec {
+    grid-area: sxth-first-title;
+    @include w-100-h-auto(clamp(1rem, auto, 14rem));
+    @include frsc;
+    border-bottom: 1px solid $primary-color;
+    overflow: hidden;
+
+    a {
+            text-decoration: none;
+            color: $accent-color;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 0.2rem 2rem;
+            background-color: $primary-color;
+            clip-path: $clip;
+        }
+}
+
+
+.sxth-content-sec {
+    grid-area: sxth-first-content;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    grid-template-areas:
+    "sxth-content-sec-1"
+    "sxth-content-sec-2";
+
+}
+
+.sxth-content-sec-1 {
+    grid-area: sxth-content-sec-1;
+    @include clamp-w-h(4rem, 100%, 100%,   3rem, 18rem, 30rem);
+    @include fccc;
+    position: relative;
+
+    @include respond-to(xxl){
+        @include clamp-w-h(4rem, 100%, 100%,  3rem, 17rem, 30rem);
+    }
+
+    @include respond-to(xl){
+        @include clamp-w-h(4rem, 100%, 100%,  3rem, 16rem, 30rem);
+    }
+
+    @include respond-to(lg){
+        @include clamp-w-h(4rem, 100%, 100%,  3rem, 15rem, 30rem);
+    }
+    @include respond-to(md){
+        @include clamp-w-h(4rem, 100%, 100%,  3rem, 22rem, 30rem);
+    }
+    @include respond-to(sm){
+        @include clamp-w-h(4rem, 100%, 100%,  3rem, 18rem, 30rem);
+    }
+}
+
+.scs1-post-container {
+    @include w-h-100;
+    @include fccc;
+}
+
+.scs1-fig-cnt {
+    @include w-h-100;
+    @include fccc;
+    margin: 0;
+}
+
+.scs1-image {
+    @include w-h-100;
+    object-fit: cover;
+}
+
+.scs1-detaiscs1 {
+    @include w-100-h-auto(cal(100% - 60%));
+    @include fcsc;
+    @include c-d-e;
+    position: absolute;
+    bottom: 0;
+}
+
+.scs1-title {
+    @include w-h-100;
+    @include fccc;
+}
+.scs1-a {
+    @include w-h-100;
+    @include fccc;
+    @include line-clamp(2);
+    color: $accent-color;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.scs1-a:hover {
+    color: $hover-color;
+}
+.scs1-meta-data {
+    @include w-100-h-auto;
+    @include frsc;
+    gap: 0.6rem;
+}
+
+.scs1-cat,
+.scs1-date {
+    @include frsbc;
+    font-size: 0.7rem;
+    color: $accent-color;
+
+    a {
+        text-decoration: none;
+        color: $accent-color;
+    }
+}
+
+.scs1-cat::after {
+    @include cat-after;
+}
+
+.scs1-cat:hover a{
+    color: $hover-color;
+}
+
+.sxth-content-sec-2 {
+    grid-area: sxth-content-sec-2;
+    @include clamp-w-h(4rem, 100%, 100%, 3rem, auto, auto);
+    @include fccc;
+    gap: 1rem;
+}
+
+.scs2-post-container {
+    @include w-100-h-auto(clamp(3rem, 6rem, 15rem));
+    @include frsc;
+    gap: 0.8rem;
+    overflow: hidden;
+}
+
+.scs2-fig-cnt {
+    @include clamp-w-h(3rem, 30%, 50%,  3rem, 100%, 100%);
+    @include fccc;
+    margin: 0;
+}
+
+.scs2-image {
+    @include w-h-100;
+    object-fit: cover;
+}
+
+.scs2-detaiscs2 {
+    @include clamp-w-h(4rem, 68%, 100%, 3rem, 100%, 100%);    
+    @include fcsc;
+}
+
+.scs2-title {
+    @include w-100-h-auto;
+    @include fcsc;
+}
+
+.scs2-a {
+    @include w-100-h-auto;
+    @include fcsc;
+    color: $accent-color1;
+    text-decoration: none;
+    font-size: 1.4rem;
+    @include line-clamp(2);
+}
+.dark .scs2-a {
+    color: $accent-color;
+}
+.scs2-a:hover {
+    color: $hover-color;
+}
+
+.scs2-meta-data {
+    @include w-100-h-auto;
+    @include frsc;
+    gap: 0.6rem;
+}
+
+.scs2-cat,
+.scs2-date {
+    @include w-h-auto;
+    @include frsc;
+    gap: 0.6rem;
+    font-size: 0.7rem;
+    color: $accent-color;
+    a {
+        color: $accent-color;
+        text-decoration: none;
+    }
+}
+
+.scs2-cat:hover a {
+    color: $hover-color;
+}
+
+.scs2-cat::after {
+    @include cat-after;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sxth-second {
+    grid-area: sixth-sec-right;
+    @include w-h-100;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    grid-template-areas:
+    "sxthsec-second-title"
+    "sxthsec-second-content";
+}
+
+
+.sxthsec-title-sec {
+    grid-area: sxthsec-second-title;
+    @include w-100-h-auto(clamp(1rem, auto, 14rem));
+    @include frsc;
+    border-bottom: 1px solid $primary-color;
+    overflow: hidden;
+
+    a {
+            text-decoration: none;
+            color: $accent-color;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 0.2rem 2rem;
+            background-color: $primary-color;
+            clip-path: $clip;
+        }
+}
+
+.sxthsec-content-sec {
+    grid-area: sxthsec-second-content;
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    grid-template-areas:
+    "sxthsec-content-sec-1"
+    "sxthsec-content-sec-2";
+}
+
+.sxthsec-content-sec-1 {
+    grid-area: sxthsec-content-sec-1;
+    @include clamp-w-h(4rem, 100%, 100%, 3rem, 18rem, 30rem);
+    @include fccc;
+    position: relative;
+
+    @include respond-to(xxl) {
+            @include clamp-w-h(4rem, 100%, 100%, 3rem, 17rem, 30rem);
+        }
+    
+        @include respond-to(xl) {
+            @include clamp-w-h(4rem, 100%, 100%, 3rem, 16rem, 30rem);
+        }
+    
+        @include respond-to(lg) {
+            @include clamp-w-h(4rem, 100%, 100%, 3rem, 15rem, 30rem);
+        }
+    
+        @include respond-to(md) {
+            @include clamp-w-h(4rem, 100%, 100%, 3rem, 22rem, 30rem);
+        }
+    
+        @include respond-to(sm) {
+            @include clamp-w-h(4rem, 100%, 100%, 3rem, 18rem, 30rem);
+        }
+}
+
+.sscs1-post-container {
+    @extend .scs1-post-container;
+}
+
+.sscs1-fig-cnt {
+    @extend .scs1-fig-cnt;
+}
+
+.sscs1-image {
+    @extend .scs1-image;
+}
+
+.sscs1-detaiscs1 {
+    @extend .scs1-detaiscs1;
+}
+
+.sscs1-title {
+    @extend .scs1-title;
+}
+
+.sscs1-a {
+    @extend .scs1-a;
+}
+
+.sscs1-meta-data {
+    @extend .scs1-meta-data;
+}
+
+.sscs1-cat,
+.sscs1-date {
+    @extend .scs1-cat, .scs1-date;
+}
+
+.sscs1-cat::after {
+    content: " ";
+    width: 4px;
+    height: 4px;
+    align-content: center;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: $accent-color;
+}
+
+.sxthsec-content-sec-2 {
+    grid-area: sxthsec-content-sec-2;
+    @include clamp-w-h(4rem, 100%, 100%, 3rem, auto, auto);
+    @include fccc;
+    gap: 1rem;
+}
+
+.sscs2-post-container {
+    @extend .scs2-post-container;
+}
+
+.sscs2-fig-cnt {
+    @extend .scs2-fig-cnt;
+}
+
+.sscs2-image {
+    @extend .scs2-image;
+}
+
+.sscs2-detaiscs2 {
+    @extend .scs2-detaiscs2;
+}
+
+.sscs2-title {
+    @extend .scs2-title;
+}
+
+.sscs2-a {
+    @extend .scs2-a;
+}
+
+.dark .sscs2-a {
+    color: $accent-color;
+}
+
+.sscs2-meta-data {
+    @extend .scs2-meta-data;
+}
+
+.sscs2-cat,
+.sscs2-date {
+    @extend .scs2-cat, .scs2-date;
+}
+
+.sscs2-cat::after {
+    content: " ";
+    width: 4px;
+    height: 4px;
+    align-content: center;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: $accent-color;
+}

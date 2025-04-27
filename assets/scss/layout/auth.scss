@@ -1,0 +1,349 @@
+// Import base styles
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+
+.auth-page-wpr-sec {
+       @include clamp-w-h(21.3rem, 60vw, 100vw, 20rem, auto, auto);
+        @include fccc;
+        border: 1px solid black;
+        border-radius: $br10;
+        margin: 0 auto;
+        gap: 4rem;
+    
+        @include respond-to(xxl) {
+            //1450px
+            @include clamp-w-h(21.3rem, 70vw, 100vw, 20rem, auto, auto);
+        }
+    
+        @include respond-to(xl) {
+            //1200px
+            @include clamp-w-h(21.3rem, 75vw, 100vw, 20rem, auto, auto);
+        }
+    
+        @include respond-to(lg) {
+            //1024px
+            @include clamp-w-h(21.3rem, 80vw, 100vw, 20rem, auto, auto);
+        }
+    
+        @include respond-to(md) {
+            //768px
+            @include clamp-w-h(21.3rem, 95vw, 100vw, 20rem, auto, auto);
+        }
+    
+        @include respond-to(sm) {
+            //576px
+            @include clamp-w-h(21.3rem, 99vw, 100vw, 20rem, auto, auto);
+        }
+}
+
+
+.auth-btn-sec {
+    @include frsc;
+    @include w-h-auto;
+    gap: 1rem;
+
+}
+
+.auth-btn {
+    width: 70px;
+    height: 30px;
+    border-radius: $br5;
+    border: none;
+    background-color: $btn-color;
+    font-size: 1.2rem;
+    color: $accent-color;
+}
+
+.auth-btn:hover {
+    background-color: darken($btn-color, 10%);
+}
+
+.auth-form-sec {
+    width: clamp(14rem, 20rem, 50rem);
+    height: clamp(20rem, auto, 50rem);
+    @include fccc;
+}
+
+
+
+
+
+
+.af-form {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    @include fadeInDown;
+}
+
+.af-title {
+    font-size: 1.8rem;
+    color: royalblue;
+    font-weight: 600;
+    letter-spacing: -1px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.af-title::before,
+.af-title::after {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    left: 0px;
+    background-color: royalblue;
+}
+
+.af-title::before {
+    width: 18px;
+    height: 18px;
+    background-color: royalblue;
+}
+
+.af-title::after {
+    width: 18px;
+    height: 18px;
+    animation: pulse 1s linear infinite;
+}
+
+.af-message,
+.af-signin {
+    color: rgba(88, 87, 87, 0.822);
+    font-size: 14px;
+}
+
+.af-signin {
+    text-align: center;
+}
+
+.af-signin a {
+    color: royalblue;
+}
+
+.af-signin a:hover {
+    text-decoration: underline royalblue;
+}
+
+.af-flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+}
+
+.af-form label {
+    position: relative;
+}
+
+.af-form label .af-input {
+    width: 100%;
+    padding: 10px 10px 20px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+}
+
+.af-form label .af-input+span {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: grey;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+}
+
+.af-form label .af-input:placeholder-shown+span {
+    top: 15px;
+    font-size: 0.9em;
+}
+
+.af-form label .af-input:focus+span,
+.af-form label .af-input:valid+span {
+    top: 30px;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+.af-form label .af-input:valid+span {
+    color: green;
+}
+
+.af-submit {
+    border: none;
+    outline: none;
+    background-color: royalblue;
+    padding: 10px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+}
+
+.af-submit:hover {
+    background-color: rgb(56, 90, 194);
+}
+
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.lf-form {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #ffffff;
+    padding: 30px;
+    width: 400px;
+    border-radius: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    @include fadeInDown;
+}
+
+::placeholder {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.lf-form button {
+    align-self: flex-end;
+}
+
+.lf-flex-column>label {
+    color: #151717;
+    font-weight: 600;
+}
+
+.lf-inputForm {
+    border: 1.5px solid #ecedec;
+    border-radius: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.lf-input {
+    margin-left: 10px;
+    border-radius: 10px;
+    border: none;
+    width: 85%;
+    height: 100%;
+}
+
+.lf-input:focus {
+    outline: none;
+}
+
+.lf-inputForm:focus-within {
+    border: 1.5px solid #2d79f3;
+}
+
+.lf-flex-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.lf-flex-row>div>label {
+    font-size: 14px;
+    color: black;
+    font-weight: 400;
+}
+
+.lf-span {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #2d79f3;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.lf-button-submit {
+    margin: 20px 0 10px 0;
+    background-color: #151717;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 10px;
+    height: 50px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.lf-button-submit:hover {
+    background-color: #252727;
+}
+
+.lf-p {
+    text-align: center;
+    color: black;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.lf-btn {
+    margin-top: 10px;
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    gap: 10px;
+    border: 1px solid #ededef;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.lf-btn:hover {
+    border: 1px solid #2d79f3;
+    ;
+}

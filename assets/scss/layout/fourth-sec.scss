@@ -1,0 +1,151 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+
+
+
+
+.fourth-section {
+    @include clamp-w-h(21.3rem, 100%, 100%, 8rem, auto, auto);
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    padding: 0.3rem;
+    grid-template-areas:
+        "frth-title"
+        "frth-post"
+    ;
+
+}
+
+.frth-title-cnt {
+    grid-area: frth-title;
+    @include w-100-h-auto;
+    @include frsc;
+
+}
+
+.frth-title {
+    @include w-100-h-auto;
+    @include frsc;
+    border-bottom: 1px solid $primary-color;
+    overflow: hidden;
+}
+
+.frth-title-a {
+    @include frsc;
+    font-size: 1.4rem;
+    color: $accent-color;
+    text-decoration: none;
+    background-color: $primary-color;
+    padding: 0.2rem 2rem;
+    clip-path: $clip;
+}
+
+
+.frth-post-cnt {
+    grid-area: frth-post;
+    @include w-100-h-auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-row: auto;
+    gap: 1rem;
+    justify-items: center;
+    overflow: hidden;
+}
+
+
+.frth-post-wpr-cnt {
+    @include clamp-w-h(3rem, 17rem, 30rem, 3rem, 11rem, 30rem);
+    @include fccc;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    @include respond-to(xxl) {
+        @include clamp-w-h(3rem, 15rem, 100%, 3rem, 11rem, 30rem);
+    }
+
+    @include respond-to(sm) {
+        @include clamp-w-h(3rem, 100%, 100%, 3rem, 14rem, 30rem);
+    }
+}
+
+.frth-fig-cnt {
+    @include w-h-100;
+    @include fccc;
+    position: absolute;
+    margin: 0;
+}
+
+.frth-post-img {
+    @include w-h-100;
+    object-fit: cover;
+}
+
+.frth-details {
+    @include w-100-h-auto(cal(100% - 60%));
+    @include fces;
+    position: absolute;
+    bottom: 0;
+    gap: 0.2rem;
+    @include c-d-e;
+}
+
+.fth-post-title {
+    @include w-100-h-auto;
+    @include frsc;
+}
+
+.frth-post-title-a {
+    font-size: 1rem;
+    color: $accent-color;
+    @include frsc;
+    @include line-clamp(2);
+    text-decoration: none;
+    
+}
+.frth-post-title-a:hover {
+    color: $hover-color;
+}
+
+.frth-meta-details {
+    @include w-h-100;
+    @include fcsc;
+}
+
+.frth-meta-details {
+    @include w-100-h-auto;
+    @include frsc;
+    gap: 0.5rem;
+}
+
+.frth-meta-details .frth-cat,
+.frth-meta-details .frth-date {
+    @include w-h-auto;
+    color: $accent-color;
+    @include frsc;
+    font-size: 0.8rem;
+    
+}
+
+.frth-cat a {
+    @include w-h-auto;
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: $accent-color;
+    
+}
+.frth-cat:hover a {
+    color: $hover-color;
+    
+}
+
+.frth-cat::after {
+    @include cat-after;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "site-1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "m": "sass assets/scss/main.scss assets/css/main.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "node-sass": "^9.0.0",
+    "sass": "^1.83.4",
+    "stylelint": "^16.15.0",
+    "stylelint-scss": "^6.11.1"
+  }
+}

@@ -1,0 +1,182 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+
+
+.fetch-cat-post-sec {
+     @include clamp-w-h(21.3rem, 60vw, 100vw, 20rem, auto, auto);
+    @include frsbs;
+    border-radius: $br10;
+    margin: 4rem auto;
+    gap: 4rem;
+    overflow: hidden;
+    padding: 1.2rem 0.3rem;
+
+    @include respond-to(xxl) {//1450px
+        @include clamp-w-h(21.3rem, 70vw, 100vw, 20rem, auto, auto);
+    }
+
+    @include respond-to(xl) {//1200px
+        @include clamp-w-h(21.3rem, 75vw, 100vw, 20rem,  auto, auto);
+    }
+
+    @include respond-to(lg) {//1024px
+        @include clamp-w-h(21.3rem, 80vw, 100vw, 20rem, auto, auto);
+    }
+
+    @include respond-to(md) { //768px
+        @include clamp-w-h(21.3rem, 95vw, 100vw, 20rem, auto, auto);
+    }
+
+    @include respond-to(sm) {//576px
+        @include clamp-w-h(21.3rem, 99vw, 100vw, 20rem, auto, auto);
+    }
+}
+
+
+.fetch-post-container-first {
+    @include w-100-h-auto;
+    @include fcsc;
+    gap: 4rem;
+    overflow: hidden;
+}
+
+.fetch-cat-titile-cnt {
+    @include w-100-h-auto;
+    @include frsc;
+    border-bottom: 1px solid $primary-color;
+}
+
+.fc-title {
+    @include w-h-auto;
+    @include fcsc;
+    text-decoration: none;
+    clip-path: $clip;
+    background-color: $primary-color;
+    padding: 0.2rem 2rem;
+    color: $accent-color;
+    white-space: nowrap;
+}
+.fc-search-title {
+    @include w-h-auto;
+    @include frsc;
+    text-decoration: none;
+    clip-path: $clip;
+    background-color: $link-color;
+    padding: 0.2rem 1.2rem;
+    color: $accent-color;
+    white-space: nowrap;
+    font-size: 1rem;
+}
+
+.fetch-cat-post-cnt {
+    @include w-100-h-auto;
+    @include fccc;
+    gap: 1.2rem;
+}
+
+
+.fcp-article-cnt {
+    @include clamp-w-h(8rem, 100%, 100%, 4rem, 10rem, 20rem);
+    @include frsc;
+    position: relative;
+    gap: 1rem;
+}
+
+.fcp-fig-cnt {
+    width: calc(100% - 70%);
+    height: 100%;
+    @include fccc;
+    margin: 0;
+
+    a {
+        @include w-h-100;
+        @include fccc;
+    }
+}
+
+.fcp-fig-cnt img{
+    @include w-h-100;
+    @include fccc;
+    object-fit: cover;
+}
+
+.fcp-details-cnt {
+    width: calc(100% - 30%);
+    height: 100%;
+    @include fcsc;
+    gap: 0.8rem;
+}
+
+.fcp-details-title-cnt {
+    @include w-h-auto;
+    @include fcsc;
+}
+.fcp-details-title {
+    @include w-100-h-auto;
+    @include line-clamp(2);
+    text-decoration: none;
+    color: $accent-color1;
+}
+
+.dark .fcp-details-title {
+    color: $accent-color-dark;
+}
+
+.fcp-details-title:hover {
+    color: $hover-color;
+}
+
+.fcp-meta-data-cnt {
+    @include w-100-h-auto;
+    @include frsc;
+    gap: 0.5rem;
+}
+.fcp-cat, .fcp-date {
+    @include w-h-auto;
+    @include frcc;
+    font-size: 0.8rem;
+
+    a {
+        text-decoration: none;
+        color: $accent-color1;
+    }
+}
+
+.dark .fcp-cat a{
+    color: $accent-color;
+}
+.fcp-cat::after {
+    content: "";
+    width: 4px;
+    height: 4px;
+    align-content: center;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: $accent-color;
+}
+
+
+
+
+
+
+
+
+
+
+
+.fetch-post-container-second {
+    @include clamp-w-h(8rem, 40%, 100%, 4rem, auto, 100vh);
+    @include fccs;
+    margin-top: 2.8rem;
+
+    @include respond-to(lg){
+        display: none;
+    }
+}

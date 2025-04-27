@@ -1,0 +1,311 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+.second-section {
+    @include clamp-w-h(21.3rem, 100%, 100%, 8rem, 27rem, 40rem);
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 1rem;
+    grid-template-areas:
+        "video-post-cnt editors-pick-cnt"
+    ;
+
+    @include respond-to(xxl) {
+        //1450px
+        @include clamp-w-h(21.3rem, 100%, 100%, 8rem, 25rem, 40rem);
+    }
+
+    @include respond-to(xl) {
+        //1200px
+        @include clamp-w-h(21.3rem, 100%, 100%, 8rem, 23rem, 40rem);
+    }
+
+    @include respond-to(lg) {
+        //1024px
+        @include clamp-w-h(21.3rem, 100%, 100%, 8rem, 20rem, 40rem);
+    }
+
+    @include respond-to(md) {
+        //768px
+        @include clamp-w-h(21.3rem, 100%, 100%, 8rem, 57rem, 60rem);
+        grid-template-areas:
+            "editors-pick-cnt editors-pick-cnt"
+            "video-post-cnt video-post-cnt"
+        ;
+    }
+
+    @include respond-to(sm) {
+        //768px
+        @include clamp-w-h(21.3rem, 100%, 100%, 8rem, 47rem, 50rem);
+        grid-template-areas:
+            "editors-pick-cnt editors-pick-cnt"
+            "video-post-cnt video-post-cnt"
+        ;
+    }
+
+
+}
+
+.video-post-cnt {
+    grid-area: video-post-cnt;
+    @include w-h-100;
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+        "vp-title-cnt"
+        "vp-video-cnt"
+    ;
+    grid-template-rows: auto 1fr;
+
+
+}
+
+.vp-title-cnt {
+    grid-area: vp-title-cnt;
+    @include w-100-h-auto;
+    @include frsc;
+    border-bottom: 1px solid $primary-color;
+    overflow: hidden;
+
+    a {
+            text-decoration: none;
+            color: $accent-color;
+            font-size: 1.4rem;
+            padding: 0.2rem 1.6rem;
+            background-color: $primary-color;
+            clip-path: $clip;
+        }
+}
+
+
+.vp-video-cnt {
+    grid-area: vp-video-cnt;
+    @include fccc;
+    @include w-h-100;
+    position: relative;
+    overflow: hidden;
+
+}
+
+
+.vp-navigator-cnt {
+    @include w-100-h-auto(80px);
+    @include frsbc;
+    border-radius: $br10;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+}
+
+.vp-navigator-cnt button {
+    @include clamp-w-h(1rem, 4rem, 10rem, 1rem, 4rem, 10rem);
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    color: $accent-color;
+    border: none;
+    font-size: 1.2rem;
+    border-radius: 40%;
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: 0.6s ease;
+    z-index: 1;
+
+    &:hover {
+        border: 2px solid white;
+        background-color: rgba(0, 0, 0, 0.422);
+        transition: border 0.2s ease-in-out;
+    }
+}
+
+.vp-slide-post-container {
+    @include w-h-100;
+    display: flex;
+}
+
+.vp-post-container {
+    min-width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex: 0 0 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+
+
+.vp-fig-cnt {
+    @include w-h-100;
+    @include fccc;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+
+.vp-image {
+    @include w-h-100;
+    object-fit: cover;
+}
+
+.vp-details {
+    @include w-100-h-auto(100% - 50%);
+    @include fces;
+    gap: 0.3rem;
+    @include c-d-e;
+    position: absolute;
+    bottom: 0;
+    color: $accent-color;
+}
+
+.vp-title {
+    @include fccc;
+}
+
+.vp-title .vp-a {
+    font-size: 1.4rem;
+    @include line-clamp(2);
+    text-decoration: none;
+    color: $accent-color;
+}
+
+.vp-title .vp-a:hover {
+    color: $hover-color;
+}
+.dark .vp-title .vp-a {
+    color: $accent-color-dark;
+}
+
+.vp-meta-data {
+    @include frsc;
+    font-size: 0.8rem;
+    @include w-100-h-auto;
+    gap: 1rem
+}
+
+.vp-cat,
+.vp-date {
+    @include frsbc;
+    font-size: 0.7rem;
+    color: rgb(243, 243, 243);
+
+    a {
+        color: $accent-color;
+        text-decoration: none;
+    }
+}
+
+.vp-cat::after {
+    @include cat-after;
+}
+
+.vp-cat:hover a{
+    color: $hover-color;
+}
+
+
+
+
+
+.editors-pick-cnt {
+    grid-area: editors-pick-cnt;
+    @include w-h-100;
+    display: grid;
+    gap: 1rem;
+    grid-template-areas:
+        "edtr-title-cnt"
+        "edtr-post-container"
+    ;
+    grid-template-rows: auto 1fr;
+}
+
+.edtr-title-cnt {
+    grid-area: edtr-title-cnt;
+    @include w-100-h-auto;
+    @include frsc;
+    border-bottom: 1px solid $primary-color;
+     overflow: hidden;
+
+    a {
+            text-decoration: none;
+            color: $accent-color;
+            font-size: 1.4rem;
+            font-weight: bold;
+            padding: 0.2rem 1.5rem;
+            background-color: $primary-color;
+            clip-path: $clip;
+        }
+}
+
+.edtr-post-container {
+    @include w-h-100;
+    @include fccc;
+    position: relative;
+    overflow: hidden;
+}
+
+.edtr-fig-cnt {
+    @include w-h-100;
+    @include fccc;
+    position: absolute;
+    top: 0;
+}
+
+.edtr-image {
+    @include w-h-100;
+    object-fit: cover;
+}
+
+.edtr-details {
+    @include w-100-h-auto(100% - 50%);
+    @include fces;
+    gap: 0.3rem;
+    @include c-d-e;
+    position: absolute;
+    bottom: 0;
+    color: $accent-color;
+}
+
+.edtr-title {
+    @include fccc;
+}
+
+.edtr-title .edtr-a {
+    font-size: 1.4rem;
+    @include line-clamp(2);
+    text-decoration: none;
+    color: $accent-color;
+}
+.edtr-title:hover .edtr-a {
+    color: $hover-color;
+}
+
+.edtr-meta-data {
+    @include frsc;
+    font-size: 0.8rem;
+    @include w-100-h-auto;
+    gap: 1rem
+}
+
+.edtr-cat,
+.edtr-date {
+    @include frsbc;
+    font-size: 0.7rem;
+    color: rgb(243, 243, 243);
+
+    a {
+        text-decoration: none;
+        color: $accent-color;
+    }
+}
+
+.edtr-cat::after {
+    @include cat-after;
+}
+
+.edtr-cat:hover a{
+    color: $hover-color;
+}

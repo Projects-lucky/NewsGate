@@ -1,0 +1,341 @@
+// Import base styles
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+// Import pages
+@use "../pages" as *;
+
+// Import sidebar
+@use "./sidebar" as *;
+
+.dark {
+    background-color: $background-dark;
+    color: $accent-color;
+}
+
+
+.header-container {
+    @include clamp-w-h(21.3rem, 60vw, 100vw, 3.1rem, auto, auto);
+    @include fcsbs;
+    border-radius: $br10;
+    margin: 0 auto;
+    z-index: 1;
+    background-color: $secondary-color;
+    position: relative;
+
+    @include respond-to(xxl) { //1450px
+        @include clamp-w-h(21.3rem, 70vw, 100vw,   3.1rem, auto, auto);
+    }
+    @include respond-to(xl) { //1200px
+        @include clamp-w-h(21.3rem, 75vw, 100vw, 3.1rem, 6rem, auto);
+    }
+    @include respond-to(lg) { //1024px
+        @include clamp-w-h(21.3rem, 80vw, 100vw, 3.1rem, 6rem, auto);
+    }
+    @include respond-to(md) { //768px
+        @include clamp-w-h(21.3rem, 95vw, 100vw, 3.1rem, 6rem, auto);
+    }
+    @include respond-to(sm) { //576px
+        @include clamp-w-h(21.3rem, 99vw, 100vw, 3.1rem, 4rem, auto);
+        @include fccs;
+    }
+ }
+
+ .stick_header {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    transition: position 0.3s ease-in-out;
+    z-index: 1;
+ }
+
+
+.top-nav-cnt {
+    @include w-100-h-auto;
+    @include frsbc;
+    padding-bottom: 1.2rem;
+    position: relative;
+    border-radius: $br10;
+    top: 0;
+
+    @include respond-to(sm) {
+            //576px
+            display: none;
+        }
+
+}
+
+.tnc-pages-navs-cnt {
+    @include w-h-auto;
+    @include fccs;
+    gap: 0.4rem;
+}
+
+.tnc-pages-ul {
+    @include w-h-auto;
+    @include frsc;
+    gap: 0.4rem;
+    padding: 0.2rem 0.4rem;
+}
+
+.tnc-pages-li {
+    @include w-h-auto;
+    @include fccs;
+    gap: 0.4rem;
+    list-style-type: none;
+}
+.tnc-pages-li a{
+    @include w-h-auto;
+    @include fccs;
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: $accent-color;
+}
+.tnc-pages-li:hover a{
+    color: $primary-color;
+}
+.tnc-user-profile-cnt {
+    @include w-h-auto;
+    @include fccs;
+    position: relative;
+    align-self: flex-end;
+    margin-right: 1rem;
+}
+#tnc-profile-svg {
+    color: #e72929;
+}
+
+.tnc-act-af {
+    fill: rgb(31, 240, 94);
+}
+
+
+
+.tnc-profile-info {
+    @include w-h-auto;
+    display: none;
+    gap: 0.4rem;
+    position: absolute;
+    top: 100%;
+    background-color: rgb(124, 33, 230);
+    right: 0;
+    z-index: 99;
+    border-radius: $br10;
+    padding: 1rem;
+}
+
+.tnc-user-name {
+    color: white;
+    font-weight: bold;
+}
+.tnc-user-email {
+    color: white;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+.tncshow{
+    @include fccs;
+    transition: display 0.3s ease;
+}
+.tnc-logout , .tnc-log-in-out {
+    @include fccs;
+    color: white;
+    font-size: 0.6rem;
+    text-decoration: none;
+    border: 1px solid #acacac;
+    padding: 0.2rem 0.3rem;
+    background-color: rgb(99, 8, 202);
+}
+.tnc-hr {
+    width: 100%;
+    height: 0.4px;
+    @include respond-to(sm) {
+            //576px
+            display: none;
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.navigation-container  {
+    @include w-100-h-auto(4rem);
+    @include frsbc;
+    position: relative;
+    border-radius: $br10;
+}
+
+.category-navs {
+    @include w-100-h-auto;
+}
+
+.logo-container {
+    @include clamp-w-h(2.3rem, 15.5rem, 30rem,  2.3rem, 3.5rem, 5rem);
+    @include frsc;
+    gap: 1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.logo-img-cnt {
+    @include clamp-w-h(1.3rem, auto, 10rem, 2.3rem, 3.5rem, 5rem);
+    @include fccc;
+    overflow: hidden;
+}
+
+  .logo-img-cnt a {
+    @include w-h-100;
+    @include fccc;
+}
+
+.custom-logo, .logo-image {
+    @include w-h-100;
+    object-fit: cover;
+}
+
+.logo-text-cnt  {
+        @include clamp-w-h(2.3rem, 9.5rem, 10rem, 2.3rem, 3.5rem, 5rem);
+        @include fccc;
+}
+
+.logo-text {
+    @include w-h-100;
+    @include fccc;
+    color: $accent-color;
+    text-align: center;
+    padding: 0.2rem 0.5rem;
+    font-size: 1.4rem;
+    white-space: nowrap;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+
+
+.pages-navs-cnt {
+    @include clamp-w-h(1.3rem, auto, 10rem, 2.3rem, 3.5rem, 5rem);
+    @include frsc;
+    @include respond-to(xl) {//1024px
+            display: none;
+        }
+
+}
+
+.pages-ul {
+    @include w-h-100;
+    @include frsc;
+    gap: 0.5rem;
+    position: relative;
+}
+
+
+.pages-li {
+    @include w-100-h-auto;
+    padding: 0.2rem 0.5rem;
+    @include list-hover-effect($primary-color, 0.5s);
+    list-style-type: none
+}
+
+
+.pages-li a {
+    @include w-h-auto;
+    text-decoration: none;
+    @include frcc;
+    position: relative;
+    color: $accent-color;
+    white-space: nowrap;
+    font-size: 0.9rem;
+}
+
+.search-dark-menu-cnt {
+    @include clamp-w-h(1.3rem, auto, 10rem, 2.3rem, 3.5rem, 5rem);
+    @include frsc;
+    gap: 0.4rem;
+    color: $highlight-color;
+    flex-shrink: 0;
+}
+
+.search-cnt, .dark-mode-cnt, .hambrgr-menu-cnt {
+    @include w-h-auto;
+    @include frcc;
+    position: relative;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+   color: $accent-color;
+}
+
+#hmbgr-svg {
+    @include respond-to(md) {
+        display: none;
+    }
+}
+
+#res-dev-hmbgr-svg {
+    @include w-h-auto;
+    display: none;
+
+    @include respond-to(md) {
+        display: block;
+    }
+}
+
+.svg-color {
+    color: wheat;
+}
+
+
+.search-form {
+    @include w-h-auto;
+    display: none;
+    gap: 0.5rem;
+    position: absolute;
+    background-color: $background-light;
+    border: none;
+    color: $accent-color;
+    padding: 0.2rem 0.5rem;
+    border-radius: $br10;
+    top: 100%;
+    right: 10%;
+    margin-top: 1%;
+
+    @include respond-to(sm) {
+        top: 100%;
+        right: 0;
+    }
+}
+
+.search-active {
+    @include frcc;
+    @include fadeInDown;
+
+}
+
+.search-form #s {
+    @include clamp-w-h(300px, 19rem, 30rem, 40px, 60px, 100px);
+}
+
+.search-form #search-btn {
+    @include clamp-w-h(20px, 3.5rem, 10rem, 20px, 3.5rem, 10rem);
+    background-color: $primary-color;
+    border: none;
+    border-radius: $br5;
+}

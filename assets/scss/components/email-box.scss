@@ -1,0 +1,22 @@
+@use "../abstracts" as *;
+
+
+.email-frm {
+    @include frsc;
+    @include w-100-h-auto;
+    @include respond-to(lg) {
+    @include frcc;
+    }
+}
+
+#email {
+    @include clamp-w-h(2rem, 23rem, 25rem,  1rem, 3rem, 6rem);
+    font-size: 1rem;
+    outline: none;
+    border: none;
+    accent-color: $primary-color;
+}
+
+.email-sub {
+        @include clamp-w-h(2rem, 6rem, 15rem, 1rem, 3rem, 6rem);
+}

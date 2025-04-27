@@ -1,0 +1,143 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+
+
+
+.single-post-main-cnt {
+    @include clamp-w-h(21.3rem, 60vw, 100vw, 20rem, auto, auto);
+        @include frsbs;
+        border-radius: $br10;
+        margin: 0 auto;
+        gap: 4rem;
+        overflow: hidden;
+    
+        @include respond-to(xxl) {
+            //1450px
+            @include clamp-w-h(21.3rem, 70vw, 100vw, 20rem, auto, auto);
+        }
+    
+        @include respond-to(xl) {
+            //1200px
+            @include clamp-w-h(21.3rem, 75vw, 100vw, 20rem, auto, auto);
+        }
+    
+        @include respond-to(lg) {
+            //1024px
+            @include clamp-w-h(21.3rem, 80vw, 100vw, 20rem, auto, auto);
+        }
+    
+        @include respond-to(md) {
+            //768px
+            @include clamp-w-h(21.3rem, 95vw, 100vw, 20rem, auto, auto);
+        }
+    
+        @include respond-to(sm) {
+            //576px
+            @include clamp-w-h(21.3rem, 99vw, 100vw, 20rem, auto, auto);
+        }
+}
+
+
+.single-post-and-comment-item {
+    @include fccc;
+    @include w-100-h-auto;
+    gap: 1rem;
+
+}
+
+
+.single-post-cnt { 
+    @extend .single-post-and-comment-item;
+    padding: 0.6rem;
+
+}
+.single-post-cnt .post-title { 
+   font-size: 2rem;
+
+}
+.single-post-cnt .featured-image { 
+   @include w-100-h-auto(25vw);
+   @include frsc;
+   overflow: hidden;
+
+   @include respond-to(md) {
+      @include w-100-h-auto(60vw);
+   }
+   @include respond-to(sm) {
+      @include w-100-h-auto(70vw);
+   }
+
+}
+.single-post-cnt .featured-image  img{ 
+   @include w-h-100;
+    object-fit: cover;
+}
+.single-post-cnt .post-content{ 
+   @include w-100-h-auto;
+   @include fccs;
+   gap: 1rem;
+}
+.single-post-cnt .post-content p{ 
+   @include w-100-h-auto;
+    text-align: left;
+    font-size: 1rem;
+}
+.single-post-cnt .post-content p a{ 
+   @include w-h-auto;
+   text-decoration: none;
+   color: $link-color;
+}
+.single-post-cnt .post-content .wp-block-heading{ 
+   @include w-100-h-auto;
+    font-size: 1.6rem;
+}
+.single-post-cnt .post-content .wp-block-image{ 
+    @include w-100-h-auto(100%);
+        @include fcsc;
+        gap: 0.1rem;
+        overflow: hidden;
+        margin: 0;
+    
+        @include respond-to(md) {
+            @include w-100-h-auto(60vw);
+        }
+    
+        @include respond-to(sm) {
+            @include w-100-h-auto(70vw);
+        }
+}
+.single-post-cnt .post-content .wp-block-image .wp-element-caption{ 
+    @include w-100-h-auto;
+    font-size: 0.7rem;
+    position: relative;
+    @include line-clamp(3);
+    font-style: italic;
+}
+.single-post-cnt .post-content .wp-block-image img{ 
+    @include w-h-100;
+    object-fit: cover;
+}
+
+
+.single-post-and-comment-cnt {
+    @extend .single-post-and-comment-item;
+}
+
+.single-post-aside-cnt {
+    @include clamp-w-h(8rem, 40%, 100%, 4rem, auto, 100vh);
+    @include fccs;
+    padding: 0.6rem;    
+    gap: 1.2rem;
+
+
+    @include respond-to(md) {
+        //768px
+        display: none;
+    }
+}

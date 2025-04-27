@@ -1,0 +1,154 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+.sidebar-widget {
+    @include w-100-h-auto;
+    @include fccs;
+    gap: 0.8rem;
+
+    p {
+        font-size: 1.1rem;
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+}
+
+.widget-title {
+    @include w-100-h-auto;
+    @include frsc;
+}
+
+.menu-all-menu-container, #menu-all-menu, .menu {
+    @include w-100-h-auto;
+    @include fcss;
+}
+
+.menu-item, .menu-item-type-taxonomy,  .menu-item-object-category {
+    list-style-type: none;
+
+    a{
+        @include w-100-h-auto;
+        color: $accent-color1;
+        text-decoration: none;
+    }
+}
+
+.menu-item, .menu-item-type-taxonomy,  .menu-item-object-category {
+    list-style-type: none;
+
+    &:hover a{
+        color: $link-color;
+    }
+}
+
+.dark .menu-item, .dark .menu-item-type-taxonomy,  .dark .menu-item-object-category {
+    list-style-type: none;
+
+    a{
+        color: $accent-color;
+    }
+    &:hover a{
+        color: $link-color;
+    }
+}
+
+
+.wp-block-group {
+    @include w-100-h-auto;
+    @include fccs;
+    gap: 1rem;
+
+}
+
+.wp-block-group__inner-container {
+    @include w-100-h-auto;
+    @include fccs;
+
+    p {
+        font-size: 1.1rem;
+        font-weight: bold;
+    }
+}
+
+.wp-block-social-links {
+    @include w-100-h-auto;
+    @include frcs;
+    gap: 1rem;
+}
+
+.wp-block-search__label {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+
+.wp-block-latest-posts__list {
+    @include w-100-h-auto;
+    @include fccs;
+}
+.wp-block-latest-posts__list li{
+    @include w-100-h-auto;
+    @include fccs;
+    list-style-type: none;
+}
+
+.wp-block-latest-posts__featured-image {
+    @include clamp-w-h(3rem, 100%, 100%,  3rem, 8rem, 12rem);
+    @include fccs;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+.wp-block-latest-posts__featured-image a{
+    @include w-h-100;
+    @include fccs;
+}
+.wp-block-latest-posts__featured-image .attachment-thumbnail{
+    @include w-h-100;
+    object-fit: cover;
+}
+.wp-block-latest-posts__post-date {
+    font-size: 0.2rem;
+}
+.wp-block-latest-posts__post-title,
+ .wp-block-latest-posts__post-excerpt{
+    @include w-100-h-auto;
+    @include fccs;
+    @include line-clamp(2);
+    font-size: 1.2rem;
+    text-decoration: none;   
+    color: $accent-color1;
+}
+
+
+.dark .wp-block-latest-posts__post-title,
+.dark .wp-block-latest-posts__post-excerpt {
+    color: $accent-color;
+}
+.wp-block-latest-posts__post-title:hover,
+.wp-block-latest-posts__post-excerpt:hover {
+    color: $hover-color;
+}
+
+
+.wp-block-latest-posts__post-excerpt {
+    font-size: 0.8rem;
+}
+
+.wp-block-page-list {
+    @extend .menu-all-menu-container;
+}
+
+.wp-block-pages-list__item {
+    @extend .menu-item;
+}
+.dark .wp-block-pages-list__item a{
+    color: $accent-color;
+}
+.wp-block-pages-list__item:hover a {
+    color: $link-color;
+}
+.dark .wp-block-pages-list__item:hover a {
+    color: $link-color;
+}

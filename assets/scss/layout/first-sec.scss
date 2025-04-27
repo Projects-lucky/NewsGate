@@ -1,0 +1,228 @@
+@use "../base" as *;
+
+// Import abstracts (variables, mixins, functions)
+@use "../abstracts" as *;
+
+// Import components
+@use "../components" as *;
+
+
+
+.First-section {
+    @include clamp-w-h(21.3rem, 100%, 100%, 20rem, 27rem, 40rem);
+    display: grid;
+    grid-template-areas:
+        "feat-title-cnt"
+        "post-lyt"
+    ;
+    grid-template-rows: auto 1fr;
+    padding: 0.2rem;
+    align-items: start;
+    overflow: hidden;
+    margin: 0;
+    gap: 1rem;
+    z-index: 0;
+
+    @include respond-to(lg) {
+        //1024px
+        @include clamp-w-h(21.3rem, 80vw, 100vw, 20rem, 35rem, 45rem);
+    }
+
+    @include respond-to(md) {
+        //768px
+        @include clamp-w-h(21.3rem, 95vw, 100vw, 20rem, 44rem, 50rem);
+    }
+
+    @include respond-to(sm) {
+        //576px
+        @include clamp-w-h(21.3rem, 99vw, 100vw, 20rem, 46rem, 50rem);
+    }
+
+}
+
+.feat-title-cnt {
+    grid-area: feat-title-cnt;
+    @include clamp-w-h(2.3rem, 100%, 100%, 2.3rem, 2rem, 10rem);
+    border-bottom: 1px solid $primary-color;
+    overflow: hidden;
+}
+
+.ftc-link {
+    text-decoration: none;
+    padding: 0.2rem 2rem;
+    color: $accent-color;
+    background-color: $primary-color;
+    clip-path: $clip;
+
+}
+.dark .ftc-link {
+    color: $accent-color-dark;
+}
+
+.post-lyt-cnt {
+    grid-area: post-lyt;
+    @include w-h-100;
+    display: grid;
+    grid-template-rows: repeat(2, minmax(auto-fit, 1fr));
+    padding: 0.2rem;
+    overflow: hidden;
+    gap: 1rem;
+    z-index: 0;
+    grid-template-areas:
+        "main-feat main-feat  qw-1 qw-2"
+        "main-feat main-feat qw-3 qw-4"
+    ;
+
+    @include respond-to(lg) {
+        //1024px
+        grid-template-areas:
+            "main-feat main-feat qw-4 qw-4"
+            " qw-1 qw-2 qw-3 qw-3"
+        ;
+    }
+
+    @include respond-to(md) {
+        //1024px
+        grid-template-rows: repeat(auto-fit, minmax(auto-fit, 1fr));
+        grid-template-areas:
+            "main-feat main-feat main-feat main-feat"
+            "main-feat main-feat main-feat main-feat"
+            "main-feat main-feat main-feat main-feat"
+            " qw-2 qw-2 qw-3 qw-3"
+            " qw-2 qw-2 qw-3 qw-3"
+            "qw-4 qw-4 qw-1 qw-1"
+            "qw-4 qw-4 qw-1 qw-1"
+        ;
+    }
+
+}
+
+
+.big-featured {
+    grid-area: main-feat;
+    @include clamp-w-h(15rem, 22rem, auto, 15rem, 22rem, 40rem);
+    @include fccc;
+    padding: 1rem;
+}
+
+.quarter-width-one {
+    grid-area: qw-1;
+    @include clamp-w-h(5rem, 10rem, 30rem, 5rem, 10rem, 30rem);
+    @include fccc;
+    padding: 1rem;
+}
+
+.quarter-width-two {
+    grid-area: qw-2;
+    @extend .quarter-width-one;
+
+}
+
+.quarter-width-three {
+    grid-area: qw-3;
+    @extend .quarter-width-one;
+
+}
+
+.quarter-widt-four {
+    grid-area: qw-4;
+    @extend .quarter-width-one;
+}
+
+
+
+
+.big-featured .fp-details {
+    @include w-100-h-auto(100% - 60%);
+}
+
+.big-featured .fp-title {
+    font-size: 2.2rem;
+    @include line-clamp(2);
+
+    @include respond-to(lg) {
+        font-size: 1.4rem;
+    }
+}
+
+.big-featured .fp-title .fp-title-link {
+    color: $accent-color;
+    text-decoration: none;
+}
+
+
+
+.feat-post-container {
+    @include w-h-100;
+    @include fccc;
+    position: relative;
+    overflow: hidden;
+}
+
+.fp-fig-cnt {
+    @include w-h-100;
+    @include fccc;
+    position: absolute;
+    top: 0;
+}
+
+.fp-image {
+    @include w-h-100;
+    object-fit: cover;
+}
+
+.fp-details {
+    @include w-100-h-auto(100% - 50%);
+    @include fccs;
+    gap: 0.3rem;
+    @include c-d-e;
+    position: absolute;
+    bottom: 0;
+    color: $accent-color;
+}
+
+.fp-title {
+    @include fccc;
+    font-size: 1.2rem;
+    @include line-clamp(2);
+}
+
+.fp-title .fp-title-link {
+    color: $accent-color;
+    text-decoration: none;
+}
+.fp-title .fp-title-link:hover {
+    color: $hover-color;
+}
+
+.fp-meta-data {
+    @include frsc;
+    font-size: 0.8rem;
+    @include w-100-h-auto;
+    gap: 1rem
+}
+
+.fp-cat,
+.fp-date {
+    @include frsc;
+    font-size: 0.7rem;
+    color: $accent-color;
+}
+
+.fp-cat a{
+    @include frsc;
+    color: $accent-color;
+    text-decoration: none;
+}
+.fp-cat a:hover{
+    color: $hover-color;
+}
+.fp-cat a::after{
+    content: "";
+    width: 4px;
+    height: 4px;
+    align-content: center;
+    border-radius: 50%;
+    margin-left: 5px;
+    background-color: $accent-color;
+}
